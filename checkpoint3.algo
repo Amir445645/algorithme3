@@ -1,0 +1,88 @@
+
+//1 en utilisant une procedure
+PROCEDURE remplir (var t:tab;n:integer)
+VAR
+    i:integer;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+    read (t[i]);
+    END_FOR
+END
+
+PROCEDURE dot_product ( v1,v2:tab;n:integer )
+VAR
+   i:integer;
+   ps:float;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+     ps:=ps+v1[i]*v2[i];
+        
+    END_FOR
+    
+END
+
+ALGORITHM Dot prouct
+VAR
+ tab:array of Integer[100];
+ n,n1:integer;
+ v1,v2:tab;
+
+    
+BEGIN
+    write("n:")
+    read(n);
+    write("n1:");
+    write(n1);
+    FOR i FROM 0 TO n1-1 STEP 1  DO
+        remplir(v1,n);
+        remplir(v2,n);
+        if (dot_product(v1,v2,n)=0) then
+         write ("les 2 vecteurs sont orthogonaux")
+    END_FOR
+
+END
+//2 en utilisant une fonction
+PROCEDURE remplir (t:tab;n:integer)
+VAR
+    i:integer;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1 DO
+    read (t[i]);
+    END_FOR
+END
+
+FUNCTION dot_product ( v1,v2:tab;n:integer ):float
+VAR
+   i:integer;
+   ps:float;
+BEGIN
+    FOR i FROM 0 TO n-1 STEP 1  DO
+     ps:=ps+v1[i]*v2[i];
+        
+    END_FOR
+    return ps;
+    
+END
+
+ALGORITHM Dot prouct
+VAR
+ tab:array of Integer[100];
+ n,n1:integer;
+ v1,v2:tab;
+ ps:float;
+
+    
+BEGIN
+    write("n:")
+    read(n);
+    write("n1:");
+    write(n1);
+    FOR i FROM 0 TO n1-1 STEP 1  DO
+        remplir(v1,n);
+        remplir(v2,n);
+        ps:=dot_product ( v1,v2,n);
+        if (ps=0) then
+         write ("les 2 vecteurs sont orthogonaux")
+    END_FOR
+
+END
